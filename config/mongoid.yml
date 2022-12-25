@@ -13,7 +13,7 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - localhost:27017
+        - db:27017
       options:
         server_selection_timeout: 1
         # Note that all options listed below are Ruby driver client options (the mongo gem).
@@ -33,14 +33,14 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        # user: 'user'
+        # user: 'mongo'
 
         # The password of the user for authentication.
-        # password: 'password'
+        # password: 'mongo'
 
         # The user's database roles.
         # roles:
-        #   - 'dbOwner'
+        # - 'dbOwner'
 
         # Change the default authentication mechanism. Valid options are: :scram,
         # :mongodb_cr, :mongodb_x509, and :plain. Note that all authentication
