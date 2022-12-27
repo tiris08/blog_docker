@@ -23,7 +23,7 @@ COPY . /app/
 
 ENV BUNDLE_PATH /gems
 RUN yarn install
-RUN bundle install
+RUN gem install bundler -v 2.3.26 && bundle install
 
 ENTRYPOINT ["bin/rails"]
 CMD ["server", "-b", "0.0.0.0"]

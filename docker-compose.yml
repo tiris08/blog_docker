@@ -5,9 +5,10 @@ services:
     restart: always
     ports:
       - "27017:27017"
+
   redis:
     image: redis:6.2.0
-  
+
   sidekiq:
     build:
       context: .
@@ -25,6 +26,17 @@ services:
       RAILS_ENV: development
     entrypoint: ./entrypoints/sidekiq-entrypoint.sh
 
+  webpacker:
+    build: .
+    ports:
+      - '3035:3035'
+    environment:
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+    volumes:
+      - .:/app
+    entrypoint: ./entrypoints/webpack-entrypoint.sh
+
   app:
     tty: true
     stdin_open: true
@@ -33,10 +45,15 @@ services:
       - 3000:3000
     depends_on:
       - db
+      - webpacker
     links:
       - db
     volumes:
       - .:/app
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      WEBPACKER_DEV_SERVER_PORT: 3035
+
 
 volumes:
   gem_cache:
