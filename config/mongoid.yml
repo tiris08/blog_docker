@@ -9,11 +9,11 @@ development:
       # Otherwise define the parameters separately.
       # This defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: blog_development
+      database: <%= ENV.fetch("MONGO_DB") %>
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - db:27017
+        - <%= ENV.fetch("MONGO_HOST") %>:27017
       options:
         server_selection_timeout: 1
         # Note that all options listed below are Ruby driver client options (the mongo gem).
@@ -33,10 +33,11 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        # user: 'mongo'
-
+        # user: 'root'
+        user: <%= ENV.fetch("MONGO_USER") %>
+        password: <%= ENV.fetch("MONGO_PASSWORD") || ENV.fetch("MONGO_USER") %>
         # The password of the user for authentication.
-        # password: 'mongo'
+        # password: 'rootpwd'
 
         # The user's database roles.
         # roles:
