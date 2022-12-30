@@ -35,7 +35,7 @@ development:
         # The name of the user for authentication.
         # user: 'root'
         user: <%= ENV.fetch("MONGOUSER") %>
-        password: <%= ENV.fetch("MONGOPASSWORD") || ENV.fetch("MONGOUSER") %>
+        password: <%= ENV.fetch("MONGOPASSWORD") %>
         # The password of the user for authentication.
         # password: 'rootpwd'
 
@@ -183,9 +183,4 @@ test:
         - <%= ENV.fetch("MONGOHOST") + ':' + ENV.fetch("MONGOPORT") %>
       options:
         user: <%= ENV.fetch("MONGOUSER") %>
-        password: <%= ENV.fetch("MONGOPASSWORD") || ENV.fetch("MONGOUSER") %>
-        read:
-          mode: :primary
-        max_pool_size: 1
-      user: <%= ENV.fetch("MONGOUSER") %>
-      password: <%= ENV.fetch("MONGOPASSWORD") || ENV.fetch("MONGOUSER") %>
+        password: <%= ENV.fetch("MONGOPASSWORD") %>
