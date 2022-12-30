@@ -178,10 +178,14 @@ development:
 test:
   clients:
     default:
-      database: blog_test
+      database: <%= ENV.fetch("MONGODB_TEST") %>
       hosts:
-        - localhost:27017
+        - <%= ENV.fetch("MONGOHOST") + ':' + ENV.fetch("MONGOPORT") %>
       options:
+        user: <%= ENV.fetch("MONGOUSER") %>
+        password: <%= ENV.fetch("MONGOPASSWORD") || ENV.fetch("MONGOUSER") %>
         read:
           mode: :primary
         max_pool_size: 1
+      user: <%= ENV.fetch("MONGOUSER") %>
+      password: <%= ENV.fetch("MONGOPASSWORD") || ENV.fetch("MONGOUSER") %>
