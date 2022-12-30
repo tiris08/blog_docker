@@ -1,7 +1,7 @@
 # README
-PET Rails project with dockerfile & docker-compose setup
-
-The Project is deployed to https://railway.app -> https://blogdocker-production.up.railway.app
+PET Rails project with: 
+- dockerfile & docker-compose setup 
+- github actions workflow
 
 docker-compose runs next services: 
  - rails-app
@@ -9,3 +9,5 @@ docker-compose runs next services:
  - sidekiq
  - mongo-db
  - redis
+
+The Project is deployed to https://railway.app -> https://blogdocker-production.up.railway.app
