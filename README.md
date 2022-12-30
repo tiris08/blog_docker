@@ -1,24 +1,11 @@
 # README
+PET Rails project with dockerfile & docker-compose setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Project is deployed to https://railway.app -> https://blogdocker-production.up.railway.app
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+docker-compose runs next services: 
+ - rails-app
+ - webpack server
+ - sidekiq
+ - mongo-db
+ - redis
