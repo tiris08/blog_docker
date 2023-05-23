@@ -9,11 +9,11 @@ development:
       # Otherwise define the parameters separately.
       # This defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: <%= ENV.fetch("MONGODB") %>
+      database: <%= ENV["MONGODB"] %>
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - <%= ENV.fetch("MONGOHOST") + ':' + ENV.fetch("MONGOPORT") %>
+        - <%= ENV["MONGOHOST"] %> + ':' + <%= ENV["MONGOPORT"] %>
       options:
         server_selection_timeout: 1
         # Note that all options listed below are Ruby driver client options (the mongo gem).
@@ -34,8 +34,8 @@ development:
 
         # The name of the user for authentication.
         # user: 'root'
-        user: <%= ENV.fetch("MONGOUSER") %>
-        password: <%= ENV.fetch("MONGOPASSWORD") %>
+        user: <%= ENV["MONGOUSER"] %>
+        password: <%= ENV["MONGOPASSWORD"] %>
         # The password of the user for authentication.
         # password: 'rootpwd'
 
@@ -178,9 +178,9 @@ development:
 test:
   clients:
     default:
-      database: <%= ENV.fetch("MONGODB_TEST") %>
+      database: <%= ENV["MONGODB_TEST"] %>
       hosts:
-        - <%= ENV.fetch("MONGOHOST") + ':' + ENV.fetch("MONGOPORT") %>
+        - <%= ENV["MONGOHOST"] + ':' + ENV["MONGOPORT"] %>
       options:
-        user: <%= ENV.fetch("MONGOUSER") %>
-        password: <%= ENV.fetch("MONGOPASSWORD") %>
+        user: <%= ENV["MONGOUSER"] %>
+        password: <%= ENV["MONGOPASSWORD"] %>
